@@ -1,0 +1,25 @@
+Name: job.rpc
+ListenOn: 0.0.0.0:9214
+
+Log:
+  ServiceName: jobRpcLogger
+  Mode: console
+  Level: info
+
+DatabaseDSN: root:@tcp(127.0.0.1:3306)/admin_zero?charset=utf8mb4&parseTime=True&loc=Local&multiStatements=true
+
+RedisConf:
+  Host: 127.0.0.1:6379
+  Type: node
+  Pass:
+
+AsynqConf:
+  Addr: 127.0.0.1:6379
+  DB: 0
+  Concurrency: 20
+  SyncInterval: 10s
+  Enable: true
+
+TaskConf:
+  EnableScheduledTask: false
+  EnableDPTask: true
